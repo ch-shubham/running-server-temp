@@ -8,8 +8,9 @@
 
 ## Things to do:
 
-- replace `run1.sh` with `run1.bat` and update the content.
-- replace `run2.sh` with `run2.bat` and update the content.
+- replace `run1.bat` and update the content.
+- replace `run2.bat` and update the content.
+- Update the bat path where file exist.
 
 ## RUNNING SERVER
 

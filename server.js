@@ -25,20 +25,32 @@ const runScript = (scriptPath) => {
   });
 };
 
-// app.get("/mainServer", async (req, res) => {
-//   try {
-//     await runScript("./run1.sh"); // Replace with actual path
-//     res.send("run.sh executed successfully");
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Error running script");
-//   }
-// });
+const runScriptBAT = (scriptPath) => {
+  return new Promise((resolve, reject) => {
+    const process = spawn("cmd.exe", ["/c", scriptPath]);
+
+    process.stdout.on("data", (data) => {
+      console.log(data.toString());
+    });
+
+    process.stderr.on("data", (data) => {
+      console.error(data.toString());
+    });
+
+    process.on("close", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error(`Script exited with code ${code}`));
+      }
+    });
+  });
+};
 
 app.get("/server/project1", async (req, res) => {
   console.log("PROJECT-1");
   try {
-    await runScript("./run1.sh");
+    await runScriptBAT("./run1.bat");
   } catch (error) {
     console.error(error);
   }
@@ -47,7 +59,7 @@ app.get("/server/project1", async (req, res) => {
 app.get("/server/project2", async (req, res) => {
   console.log("PROJECT-2");
   try {
-    await runScript("./run2.sh");
+    await runScriptBAT("./run2.bat");
   } catch (error) {
     console.error(error);
   }
