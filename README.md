@@ -3,8 +3,8 @@
 1. Go to : https://nodejs.org/en and download from here.
 2. check if node and npm is installed:
 3. Open CMD and run the following commands:
-   1. `npm -version`
-   2. `node -version`
+   1. `npm --version`
+   2. `node --version`
 
 ## Things to do:
 
