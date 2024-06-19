@@ -16,7 +16,7 @@
 
 **In the current working directory use:**
 
-- `npm i`
+- `npm i` ==> used to install the dependency. `npm install`
 - `node server.js`
 
 **Server is running on localhost:3000**
